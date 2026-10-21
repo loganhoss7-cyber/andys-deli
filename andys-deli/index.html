@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andy's Deli | The Gold Standard of Mexican Food in Bryan, TX</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --mexican-red: #C41E3A;
+            --mexican-green: #006847;
+            --maize-gold: #FFD700;
+            --charcoal: #121212;
+            --cream: #FFFDF5;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: var(--cream); color: var(--charcoal); overflow-x: hidden; }
+        h1, h2, h3, .display { font-family: 'Bricolage Grotesque', sans-serif; }
+
+        .glass-light {
+            background: rgba(255, 253, 245, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .text-red { color: var(--mexican-red); }
+        .bg-red { background-color: var(--mexican-red); }
+        .text-green { color: var(--mexican-green); }
+        .bg-green { background-color: var(--mexican-green); }
+        .bg-gold { background-color: var(--maize-gold); }
+        .bg-charcoal { background-color: var(--charcoal); }
+
+        .btn-vibrant {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 0px 0px rgba(0,0,0,0.2);
+        }
+        .btn-vibrant:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0px 0px rgba(0,0,0,0.2);
+        }
+        .btn-vibrant:active {
+            transform: translateY(2px);
+            box-shadow: 0 0px 0px 0px rgba(0,0,0,0.2);
+        }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Nav -->
+    <nav class="fixed w-full z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center glass-light rounded-full px-8 py-3 shadow-sm">
+            <div class="text-xl font-black tracking-tighter flex items-center gap-2">
+                <span class="bg-red text-white px-2 py-0.5 rounded">ANDY'S</span> <span class="text-charcoal">DELI</span>
+            </div>
+            <div class="hidden md:flex space-x-8 text-xs uppercase tracking-widest font-bold text-stone-600">
+                <a href="#about" class="hover:text-red transition-colors">The Secret</a>
+                <a href="#menu" class="hover:text-red transition-colors">The Menu</a>
+                <a href="#visit" class="hover:text-red transition-colors">Find Us</a>
+            </div>
+            <a href="#visit" class="bg-red text-white px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest btn-vibrant">
+                Visit Now
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section: "The Hidden Gem" -->
+    <section class="relative h-screen w-full flex items-center justify-center overflow-hidden bg-charcoal text-white">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&q=80&w=2000"
+                 class="w-full h-full object-cover opacity-50 scale-105 animate-[slow-zoom_20s_infinite_alternate]"
+                 alt="Authentic Tacos">
+            <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-charcoal/50"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-6 max-w-5xl">
+            <div class="inline-flex items-center gap-2 bg-gold text-charcoal px-4 py-1 rounded-full text-xs font-black uppercase tracking-tighter mb-6 animate-bounce">
+                <span>⭐ 5.0 Rating</span> <span>&bull;</span> <span>Bryan's Best Kept Secret</span>
+            </div>
+            <h1 class="text-6xl md:text-9xl font-black leading-none mb-8 tracking-tighter">
+                Authentic <span class="text-red">Sabor</span> <br>In Every Bite.
+            </h1>
+            <p class="text-stone-300 text-lg md:text-2xl font-light max-w-2xl mx-auto mb-12 leading-relaxed">
+                No frills. No shortcuts. Just the most authentic Mexican food <br>
+                in the heart of Bryan, Texas.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-6">
+                <a href="#menu" class="bg-red text-white px-12 py-5 rounded-full font-bold uppercase tracking-widest text-sm btn-vibrant">
+                    View The Menu
+                </a>
+                <a href="#visit" class="bg-white text-charcoal px-12 py-5 rounded-full font-bold uppercase tracking-widest text-sm btn-vibrant">
+                    Where are you?
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About: The Story of Andy's -->
+    <section id="about" class="py-32 px-6 bg-cream">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+            <div class="relative reveal-left">
+                <div class="absolute -inset-4 bg-gold/30 rounded-3xl blur-2xl"></div>
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80&w=1000"
+                     class="relative rounded-3xl shadow-xl"
+                     alt="Mexican Food Platter">
+                <div class="absolute -bottom-6 -right-6 bg-green text-white p-6 rounded-2xl shadow-lg">
+                    <p class="text-3xl font-black">100%</p>
+                    <p class="text-xs uppercase font-bold">Authentic Recipe</p>
+                </div>
+            </div>
+            <div class="reveal-right">
+                <h2 class="text-5xl md:text-7xl font-black leading-tight mb-8 tracking-tighter">
+                    The <span class="text-red">Humble</span> <br>Legend.
+                </h2>
+                <div class="space-y-6 text-lg text-stone-600 leading-relaxed">
+                    <p>
+                        You won't find Andy's in a fancy shopping mall or a corporate plaza. We're tucked away in a gas station, where the focus isn't on the decor—it's on the <span class="text-charcoal font-bold">sabor</span>.
+                    </p>
+                    <p>
+                        From our legendary carne guisada to the perfect morning breakfast taco, we bring a taste of Mexico to Bryan that's unmatched in quality and heart.
+                    </p>
+                    <p class="font-semibold text-green">
+                        The 5-star ratings aren't for the building; they're for the food that keeps Bryan coming back every single morning.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu: Vibrant & Bold -->
+    <section id="menu" class="py-32 px-6 bg-charcoal text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-red/10 rounded-full blur-3xl -mr-48 -mt-48"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-green/10 rounded-full blur-3xl -ml-48 -mb-48"></div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-24 reveal">
+                <h2 class="text-6xl md:text-8xl font-black tracking-tighter mb-6">The <span class="text-gold">Flavor</span> Profile</h2>
+                <p class="text-stone-400 text-xl font-light max-w-2xl mx-auto">
+                    Handcrafted, fresh, and made with love.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Breakfast/Lunch Specialists -->
+                <div class="bg-white/5 p-10 rounded-3xl border border-white/10 hover:border-red/50 transition duration-500 reveal">
+                    <h3 class="text-3xl font-black mb-8 flex items-center gap-3">
+                        <span class="bg-red text-white p-2 rounded-lg">🌮</span> The Taco Stand
+                    </h3>
+                    <div class="space-y-8">
+                        <div class="flex justify-between items-center border-b border-white/10 pb-4">
+                            <div>
+                                <p class="text-xl font-bold">Breakfast Tacos</p>
+                                <p class="text-sm text-stone-500">Egg, cheese, and your choice of protein</p>
+                            </div>
+                            <span class="text-xl font-black text-gold">$ la mejor</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b border-white/10 pb-4">
+                            <div>
+                                <p class="text-xl font-bold">Carne Guisada</p>
+                                <p class="text-sm text-stone-500">Slow-cooked, tender, authentic</p>
+                            </div>
+                            <span class="text-xl font-black text-gold">Legendary</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b border-white/10 pb-4">
+                            <div>
+                                <p class="text-xl font-bold">Gorditas</p>
+                                <p class="text-sm text-stone-500">Thick corn cakes, stuffed with flavor</p>
+                            </div>
+                            <span class="text-xl font-black text-gold">Must Try</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- The Favorites -->
+                <div class="bg-white/5 p-10 rounded-3xl border border-white/10 hover:border-green/50 transition duration-500 reveal">
+                    <h3 class="text-3xl font-black mb-8 flex items-center gap-3">
+                        <span class="bg-green text-white p-2 rounded-lg">🌯</span> The Heavy Hitters
+                    </h3>
+                    <div class="space-y-8">
+                        <div class="flex justify-between items-center border-b border-white/10 pb-4">
+                            <div>
+                                <p class="text-xl font-bold">Breakfast Burritos</p>
+                                <p class="text-sm text-stone-500">Hearty, filling, and fresh</p>
+                            </div>
+                            <span class="text-xl font-black text-gold">The Cure</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b border-white/10 pb-4">
+                            <div>
+                                <p class="text-xl font-bold">Fresh Tortillas</p>
+                                <p class="text-sm text-stone-500">Made daily, handmade texture</p>
+                            </div>
+                            <span class="text-xl font-black text-gold">Authentic</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b border-white/10 pb-4">
+                            <div>
+                                <p class="text-xl font-bold">House Salsas</p>
+                                <p class="text-sm text-stone-500">From mild to "watch out"</p>
+                            </div>
+                            <span class="text-xl font-black text-gold">Zesty</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visit: The "Hidden Gem" Map Logic -->
+    <section id="visit" class="py-32 px-6 bg-cream text-charcoal">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="text-6xl font-black tracking-tighter mb-6 reveal">Find the <span class="text-red">Gem.</span></h2>
+            <p class="text-xl text-stone-600 mb-16 reveal">We don't have a billboard, just a line of hungry people. Here's how to find us.</p>
+
+            <div class="grid md:grid-cols-2 gap-12 items-stretch">
+                <div class="bg-white p-10 rounded-3xl shadow-xl border border-stone-200 reveal-left">
+                    <div class="text-4xl mb-6">📍</div>
+                    <h4 class="font-black text-2xl mb-4">The Location</h4>
+                    <p class="text-stone-600 text-lg leading-relaxed mb-8">
+                        <strong>3402 E State Hwy 21</strong><br>
+                        Bryan, Texas 77808<br>
+                        <span class="text-sm font-bold text-red uppercase tracking-widest mt-4 block">Inside the Gas Station</span>
+                    </p>
+                    <div class="bg-stone-100 p-6 rounded-2xl text-left text-sm text-stone-500 italic">
+                        "Look for the aroma of fresh tortillas and the line of locals. You can't miss it."
+                    </div>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-xl border border-stone-200 reveal-right">
+                    <div class="text-4xl mb-6">⏰</div>
+                    <h4 class="font-black text-2xl mb-4">The Window</h4>
+                    <div class="space-y-4 text-lg text-stone-600 mb-8">
+                        <div class="flex justify-between border-b border-stone-100 pb-2">
+                            <span>Mon &mdash; Fri</span>
+                            <span class="font-bold text-charcoal">5am &mdash; 3pm</span>
+                        </div>
+                        <div class="flex justify-between border-b border-stone-100 pb-2">
+                            <span>Saturday</span>
+                            <span class="font-bold text-charcoal">6am &mdash; 12:30pm</span>
+                        </div>
+                        <div class="flex justify-between text-stone-400">
+                            <span>Sunday</span>
+                            <span class="font-bold italic">Closed</span>
+                        </div>
+                    </div>
+                    <a href="tel:9797780564" class="block w-full bg-green text-white text-center py-4 rounded-2xl font-bold uppercase tracking-widest btn-vibrant">
+                        Call to Order
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal text-white py-20 px-6 border-t border-stone-800">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
+            <div class="text-center md:text-left">
+                <div class="text-3xl font-black tracking-tighter mb-4">
+                    <span class="bg-red text-white px-2 py-0.5 rounded">ANDY'S</span> <span class="text-white">DELI</span>
+                </div>
+                <p class="text-stone-500 text-sm font-light max-w-xs">
+                    Bryan's most authentic Mexican kitchen. Small spot, big flavor.
+                </p>
+            </div>
+            <div class="flex flex-col items-center md:items-end gap-6">
+                <div class="flex space-x-8 text-xs uppercase tracking-[0.3em] font-bold text-stone-400">
+                    <a href="#" class="hover:text-white transition">Facebook</a>
+                    <a href="#" class="hover:text-white transition">Instagram</a>
+                    <a href="#" class="hover:text-white transition">Reviews</a>
+                </div>
+                <p class="text-stone-600 text-[10px] uppercase tracking-widest">© 2026 Andy's Deli Mexican Food. Bryan, TX.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal, .reveal-left, .reveal-right");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal();
+    </script>
+
+    <style>
+        @keyframes slow-zoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+    </style>
+</body>
+</html>
